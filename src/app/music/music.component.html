@@ -1,0 +1,12 @@
+<article class="h-80 rounded-lg max-w-sm shadow-xl bg-cover bg-center transform duration-500 cursor-pointer group hover:-translate-y-2" [ngStyle]="{'background-image': 'url(&quot;'+ music.image +'&quot;)'}">>
+    <div class="pt-40 px-1">
+        <h1 class="text-white text-1xl mb-5 transform translate-y-20 group-hover:translate-y-0 duration-300">
+            {{music.title}}
+        </h1>
+        <p class="opacity-0 text-white text-l group-hover:opacity-100 transform duration-500">
+            Artist: {{music.artist}}
+            <br>
+            Genre: {{music.genre}}
+        </p>
+    </div>
+</article>

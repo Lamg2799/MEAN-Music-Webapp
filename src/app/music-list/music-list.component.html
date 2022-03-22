@@ -1,0 +1,8 @@
+<div class="bg-white">
+    <h2 class="max-w-2xl mx-auto px-4 sm:py-6 sm:px-6 lg:max-w-7xl lg:px-8 text-1xl font-semibold">Latest Tracks</h2>
+    <div class="max-w-2xl mx-auto px-4 sm:py-6 sm:px-6 lg:max-w-7xl lg:px-8 grid grid-cols-3 gap-4">
+      <ng-container *ngFor="let music of music_list$ | async">
+        <app-music [music]="music"></app-music>  
+      </ng-container>
+    </div>
+</div>
