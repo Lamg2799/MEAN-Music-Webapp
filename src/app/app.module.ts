@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LogInComponent } from './log-in/log-in.component';
+import { MusicPlayerComponent } from './music-player/music-player.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LogInComponent } from './log-in/log-in.component';
     MusicComponent,
     NavigationBarComponent,
     SignUpComponent,
-    LogInComponent
+    LogInComponent,
+    MusicPlayerComponent
   ],
   imports: [
     BrowserModule,
