@@ -1,7 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { Music } from './music'
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-
+import { Constants } from 'src/constants';
 
 @Component({
   selector: 'app-music',
@@ -12,7 +12,7 @@ export class MusicComponent implements OnInit {
 
   @Input() music! : Music;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public constants: Constants) { }
 
   ngOnInit(): void {
   }

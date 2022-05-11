@@ -2,41 +2,51 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable, Output, EventEmitter } from '@angular/core'
 import { Observable} from 'rxjs'
-import { User } from './user'
-
-import { HttpHeaders } from '@angular/common/http';
-
-const http_options = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-  })
-};
+import { User } from './user' 
+import { AuthService } from '../auth/auth.service'
+import { Constants } from 'src/constants'
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  USERS_API_URL = "http://localhost:3600/users";
-
   @Output() loggedIn: EventEmitter<User> = new EventEmitter<User>();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService, private constants: Constants) { }
 
   register(user: User): Observable<User> {
-    return this.http.post<User>(this.USERS_API_URL + "/register", user, http_options); 
+    return this.http.post<User>(this.constants.USERS_API_URL + "/register", user, this.constants.HTTP_OPTIONS); 
   }
 
-  login(user: User): Observable<User> {
-    return this.http.post<User>(this.USERS_API_URL + "/login", user, http_options); 
+  logout() {
+    return this.http.get(this.constants.USERS_API_URL + "/logout", this.constants.HTTP_OPTIONS); 
   }
 
   emitLoggedIn(user: User): void {
     this.loggedIn.emit(user);
   }
 
+  emitLoggedOut(): void {
+    this.loggedIn.emit(undefined);
+  }
+
   getLoggedIn() {
     return this.loggedIn;
+  }
+
+  setUserInfo(user: User){
+    sessionStorage.setItem('userInfo', JSON.stringify(user));
+  }
+
+  removeUserInfo() {
+    sessionStorage.removeItem('userInfo');
+  }
+
+  getUserInfo() {
+    if (this.authService.isAuthenticated()) {
+      return JSON.parse(sessionStorage.getItem('userInfo')!)
+    }
   }
 }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Music } from '../music/music';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Constants } from 'src/constants';
 
 @Component({
   selector: 'app-music-player',
@@ -12,7 +13,8 @@ export class MusicPlayerComponent implements OnInit {
 
   music! : Music;
 
-  constructor(private route: ActivatedRoute) {}
+
+  constructor(private route: ActivatedRoute, public constants: Constants) {}
 
   ngOnInit(): void {
     this.music = JSON.parse(this.route.snapshot.paramMap.get('music')!);

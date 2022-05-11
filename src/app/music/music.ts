@@ -1,11 +1,8 @@
 export interface Music {
-    audio_file: string;
     artist: string;
-    comments: string[];
+    audio_file: string;
     created_date: Date;
-    description: string;
     genre: string;
-    image: string;
-    ratings: number[];
+    image_file: string;
     title: string;
 }

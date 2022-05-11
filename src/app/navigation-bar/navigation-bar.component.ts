@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { UserService } from '../user/user.service';
 import { User } from '../user/user';
+import { MusicService } from '../music/music.service';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -10,13 +11,23 @@ import { User } from '../user/user';
 })
 export class NavigationBarComponent implements OnInit {
 
-  user? : User 
+  search : string = '';
+  user? : User;
+  private getLoggedInSubscription: Subscription = new Subscription();
 
-  constructor(private user_service: UserService) { }
+  constructor(private user_service: UserService, private music_service: MusicService) { }
 
   ngOnInit(): void {
-    this.user_service.getLoggedIn().subscribe(user => { 
+    this.getLoggedInSubscription = this.user_service.getLoggedIn().subscribe(user => { 
       this.user = user;
     });
+  }
+
+  filterMusicList() : void {
+    this.music_service.filterMusic(this.search);
+  }
+
+  ngOnDestroy(): void {
+    this.getLoggedInSubscription.unsubscribe();
   }
 }

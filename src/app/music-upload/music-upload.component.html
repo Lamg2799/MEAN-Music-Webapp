@@ -1,0 +1,52 @@
+<div class="flex items-center min-h-screen bg-gray-50">
+    <div class="h-full max-w-4xl mx-auto bg-white rounded-lg shadow-xl">
+        <form [formGroup]="musicUploadForm" class="flex items-center justify-center p-6 justify-center p-6 sm:p-12 md:w-full">
+            <div class="w-full">
+                <h1 class="mb-4 text-2xl font-bold text-center text-gray-700">
+                    Upload Your Music
+                </h1>
+                <div>
+                    <label class="block text-sm">
+                    Title
+                    </label>
+                    <input type="text"
+                    class="w-full px-4 py-2 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600 form-control"
+                    placeholder="Music Title" formControlName="title"/>
+                </div>
+                <div class="mt-4">
+                    <label class="block text-sm">
+                    Artist
+                    </label>
+                    <input type="text"
+                    class="w-full px-4 py-3 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600 form-control"
+                    [(ngModel)]="username" [readonly]="true" formControlName="artist"/>
+                </div>
+                <div>
+                    <label class="block mt-4 text-sm">
+                    Genre
+                    </label>
+                    <input type="text"
+                    class="w-full px-4 py-3 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600 form-control"
+                    placeholder="Music Genre" formControlName="genre"/>
+                </div>
+                <div class="py-2">
+                    <label class="block text-sm">
+                    Image File
+                    </label>
+                    <input type="file" class="file-upload py-2" (change)="handleImageUpload($event)" accept=".png,.jpeg" formControlName="image_file">
+                </div>
+                <div>
+                    <label class="block text-sm">
+                    Audio File
+                    </label>
+                    <input type="file" class="file-upload py-2" (change)="handleAudioUpload($event)" accept=".wav,.mp3" formControlName="audio_file">
+                </div>
+                <button
+                    class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue form-control"
+                    (click)="upload()">
+                    Upload
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
