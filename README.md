@@ -10,7 +10,7 @@
 ## Features
 
 - Includes a REST API in node for backend functionality.
-- Login, register, logout and general authentication for page access.
+- Login, register, logout and general authentication for page access via Passport local strategy (session based authentication).
 - The ability to upload music and retrieve music from AWS S3.
 - The ability to click on and listen to music that has been uploaded.
 - A filtering functionality for music.
