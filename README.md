@@ -5,6 +5,7 @@
 ## Description
 
 - This is a music manager built with the MEAN STACK (Mongodb, ExpressJs, Angular, NodeJs). 
+- The angular frontend connects to the backend via REST API.
 
 ## Features
 
