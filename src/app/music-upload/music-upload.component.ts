@@ -48,8 +48,8 @@ export class MusicUploadComponent implements OnInit {
     var music : Music = {artist:this.musicUploadForm.get("artist")!.value, audio_file:this.audio_name,
     created_date: new Date(), genre:this.musicUploadForm.get("genre")!.value, 
     image_file:this.image_name, title:this.musicUploadForm.get("title")!.value };
-    this.uploadSubscription = this.music_service.uploadMusic(music, this.audio_file, this.image_file)
-    .subscribe(
+    this.music_service.uploadMusic(music, this.audio_file, this.image_file)
+    .then(
       data => {this.toastr.success('Successfully Uploaded Music'); this.router.navigate(['/']);}
     )
   }

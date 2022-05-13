@@ -1,5 +1,5 @@
 <div class="flex flex-col h-screen pt-10 items-center space-y-3">
-    <article class="relative h-4/6 w-6/12 rounded-lg shadow-xl bg-cover bg-center" [ngStyle]="{'background-image': 'url(&quot;'+ constants.UPLOADS_URL + music.image_file +'&quot;)'}">
+    <article class="relative h-4/6 w-6/12 rounded-lg shadow-xl bg-cover bg-center" [ngStyle]="{'background-image': 'url(&quot;'+ constants.FILES_API_URL + music.image_file +'&quot;)'}">
         <div class="absolute bottom-0 px-3">
             <p class="text-white text-1xl mb-5">
                 <strong>Title:</strong> {{music.title}}
@@ -11,6 +11,6 @@
         </div>
     </article>
     <audio class="w-4/12" controls>
-        <source src={{constants.UPLOADS_URL}}{{music.audio_file}} type="audio/mpeg">
+        <source src={{constants.FILES_API_URL}}{{music.audio_file}} type="audio/mpeg">
     </audio>
 </div>

@@ -16,11 +16,11 @@ export class UserService {
   constructor(private http: HttpClient, private authService: AuthService, private constants: Constants) { }
 
   register(user: User): Observable<User> {
-    return this.http.post<User>(this.constants.USERS_API_URL + "/register", user, this.constants.HTTP_OPTIONS); 
+    return this.http.post<User>(this.constants.USERS_API_URL + "/register", user, this.constants.HTTP_OPTIONS_JSON); 
   }
 
   logout() {
-    return this.http.get(this.constants.USERS_API_URL + "/logout", this.constants.HTTP_OPTIONS); 
+    return this.http.get(this.constants.USERS_API_URL + "/logout", this.constants.HTTP_OPTIONS_JSON); 
   }
 
   emitLoggedIn(user: User): void {

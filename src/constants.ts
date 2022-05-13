@@ -9,11 +9,12 @@ export class Constants {
     public IMAGES_PATH : string = "/assets/images/";
     public USERS_API_URL: string = "http://localhost:3600/users";
     public MUSIC_API_URL: string = "http://localhost:3600/music";
-    public UPLOADS_URL: string = "http://localhost:3600/uploads/";
-    public HTTP_OPTIONS = {
+    public FILES_API_URL: string = "http://localhost:3600/file/";
+    public HTTP_OPTIONS_JSON = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json',
         })
       };
+    
     
 }

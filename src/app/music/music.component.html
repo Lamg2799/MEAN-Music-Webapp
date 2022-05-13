@@ -1,4 +1,4 @@
-<article class="h-80 rounded-lg max-w-sm shadow-xl bg-cover bg-center transform duration-500 cursor-pointer group hover:-translate-y-2" (click)="playSong()" [ngStyle]="{'background-image': 'url(&quot;'+ constants.UPLOADS_URL + music.image_file +'&quot;)'}">
+<article class="h-80 rounded-lg max-w-sm shadow-xl bg-cover bg-center transform duration-500 cursor-pointer group hover:-translate-y-2" (click)="playSong()" [ngStyle]="{'background-image': 'url(&quot;'+ constants.FILES_API_URL + music.image_file +'&quot;)'}">
     <div class="pt-40 px-1">
         <h1 class="text-white text-1xl mb-5 transform translate-y-20 group-hover:translate-y-0 duration-300">
             {{music.title}}

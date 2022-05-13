@@ -2,10 +2,13 @@
 // to retrieve data from a MongoDB instance to create
 // distinct endpoints on port 3600 of locahost.
 
+// Assumes there is a .env file containing s3 credentials of the bucket that will store uploaded files.
+
 /*
     Requires
 */
 require('./passport-config');
+require('dotenv').config();
 
 /*
     Variable declarations
@@ -15,9 +18,12 @@ var Music = require('./models/music');
 var passport = require('passport');
 var mongoose = require('mongoose');
 var session = require('express-session');
+const util = require('util');
 var db;
 
 const express = require('express');
+const fs = require('fs');
+const unlinkFile = util.promisify(fs.unlink);
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express()
@@ -27,8 +33,8 @@ const EXPRESS_PORT = 3600;
 const MONGO_DB_URL = "mongodb://localhost:27017/";
 const MongoStore = require('connect-mongo');
 const multer = require('multer');
-const AWS = require('aws-sdk');
-const s3 = new AWS.S3({
+const S3 = require('aws-sdk/clients/s3');
+const s3 = new S3({
   region: process.env.AWS_BUCKET_REGION,
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
@@ -150,10 +156,18 @@ app.route('/music/music-upload').post((req, res, next) => {
   uploadMusic(req, res);
 })
 
-app.post('/music/upload-file', upload.single('file'), (req, res) => {
-  res.status(200).json({"statusCode" : 200 ,"message" : "Successfully Uploaded File: ".concat(req.file.filename)});
+app.post('/music/upload-file', upload.single('file'), async (req, res) => {
+  const file = req.file;
+  const result = await s3UploadFile(file);
+  await unlinkFile(file.path);
+  res.status(200).json({"statusCode" : 200 ,"message" : "Successfully Uploaded File: ".concat(result)});
 })
 
+app.get('/file/:key', (req, res) => {
+  const key = req.params.key
+  const file_stream = s3DownloadFile(key);
+  file_stream.pipe(res);
+})
 /*
     Functions
 */
@@ -192,6 +206,25 @@ async function uploadMusic(req, res) {
   }
 }
 
+function s3UploadFile(file) {
+  const fileStream = fs.createReadStream(file.path);
+  
+  const params = {
+    Bucket: process.env.AWS_BUCKET_NAME,
+    Body: fileStream,
+    Key: file.filename
+  };
+
+  return s3.upload(params).promise();
+}
+
+function s3DownloadFile(key) {
+  const params = {
+    Key: key,
+    Bucket: process.env.AWS_BUCKET_NAME
+  };
+
+  return s3.getObject(params).createReadStream();
+}
 
 
-    
