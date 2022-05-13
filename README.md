@@ -5,10 +5,10 @@
 ## Description
 
 - This is a music manager built with the MEAN STACK (Mongodb, ExpressJs, Angular, NodeJs). 
-- The angular frontend connects to the backend via REST API.
 
 ## Features
 
+- Includes a REST API in node for backend functionality.
 - Login, register, logout and general authentication for page access.
 - The ability to upload music and retrieve music from AWS S3.
 - The ability to click on and listen to music that has been uploaded.
