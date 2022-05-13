@@ -1,5 +1,7 @@
 # MeanMusicWebapp
 
+## Sample images are provided in the sample-images folder
+
 ## Description
 
 - This is a music manager built with the MEAN STACK (Mongodb, ExpressJs, Angular, NodeJs). 
@@ -20,7 +22,8 @@
 
 # Instructions
 
-- Clone repo and create a mongo db with the same credentials and database as in "/backend/node/express-dataserver.js"
+- Clone repo and create a mongo db with the same credentials and database as in "/backend/node/express-dataserver.js".
 - Run "mongod".
-- Navigate to "/backend/node/" and run "node express-dataserver.js"
-- Navigate to "/frontend/" and run "ng serve"
+- Navigate to both frontend and backend and run "npm install".
+- Navigate to "/backend/node/" and run "node express-dataserver.js".
+- Navigate to "/frontend/" and run "ng serve".

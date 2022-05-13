@@ -35,7 +35,7 @@ export class SignUpComponent implements OnInit {
 
     this.registerSubscription = this.userService.register(user)
     .subscribe(
-      (_) => {this.toastr.success('Success'); this.router.navigate(['/log-in']);}
+      (_) => {this.toastr.success('Successfully Registered.'); this.router.navigate(['/log-in']);}
     )
   }
 
