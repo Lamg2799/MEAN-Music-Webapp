@@ -21,6 +21,11 @@
 - NodeJs (dependencies such as express installed via "npm install").
 - Angular (dependencies installed via "npm install").
 - .env file within the backend with aws s3 credentials stored within "/backend/node/" (bad practice to share this publicly).
+    - Ex) 
+        AWS_ACCESS_KEY_ID="access-key"
+        AWS_SECRET_ACCESS_KEY="secret-access-key"
+        AWS_BUCKET_REGION= ex) "ca-central-1"
+        AWS_BUCKET_NAME="mean-music-webapp-bucket"
 
 # Instructions
 
