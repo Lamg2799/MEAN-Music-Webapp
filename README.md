@@ -4,7 +4,7 @@
 
 ## Description
 
-- This is a music manager built with the MEAN STACK (Mongodb, ExpressJs, Angular, NodeJs). 
+- This is a music manager built with the MEAN Stack (Mongodb, ExpressJs, Angular, NodeJs). 
 - This app allows users to create an account, upload music with the account and listen to the uploaded music.
 
 ## Features
