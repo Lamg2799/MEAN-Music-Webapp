@@ -1,6 +1,6 @@
 # MeanMusicWebapp
 
-## Sample images are provided in the sample-images folder
+### Sample images are provided in the sample-images folder
 
 ## Description
 
@@ -15,7 +15,7 @@
 - The ability to click on and listen to music that has been uploaded.
 - A filtering functionality for music.
 
-# Requirements
+## Requirements
 
 - Mongodb.
 - NodeJs (dependencies such as express installed via "npm install").
@@ -27,7 +27,7 @@
         AWS_BUCKET_REGION= ex) "ca-central-1"
         AWS_BUCKET_NAME="mean-music-webapp-bucket"
 
-# Instructions
+## Instructions
 
 - Clone repo and create a mongo db with the same credentials and database as in "/backend/node/express-dataserver.js".
 - Run "mongod".
