@@ -1,4 +1,4 @@
-# MeanMusicWebapp
+# Mean Music Web App
 
 ### Sample images are provided in the sample-images folder
 
